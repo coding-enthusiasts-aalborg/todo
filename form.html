@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous" />
+    <title>Todo in Go</title>
+  </head>
+  <body>
+    <main>
+        <h1>Todo in Go</h1>
+        <form>
+          {{range $key, $value := .}}
+            <input type="checkbox" value="{{$key}}" name="{{$key}}" onclick="toggleDone(event)">{{$key}}<br />
+          {{end}}
+        </form>
+        <form method="POST">
+          <input type="text" name="todo-name" />
+          <input type="submit" value="Create" />
+        </form>
+    </main>
+
+  <script>
+    function toggleDone(e){
+      // This should send a put request instead.
+      console.log(e.target.name + " " + e.target.checked)
+    }
+  </script>
+  </body>
+</html>
